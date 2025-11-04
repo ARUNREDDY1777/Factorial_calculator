@@ -1,0 +1,70 @@
+<html>
+<head>
+    <title>Factorial using Recursion</title>
+    <style>
+        body{
+            background-color: #d9f2ff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        h2{
+            color: #c71585;
+        }
+        button{
+            color: white;
+            background-color: #2e8b57;
+            border: none;
+            border-radius: 8px;
+            height: 40px;
+            width: 120px;
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: #1f5e3c;
+        }
+        div.cal{
+            background-color: #b0d8f5;
+            height: 220px;
+            width: 300px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 2px 4px 10px gray;
+        }
+        input{
+            border-radius: 6px;
+            padding: 6px;
+            width: 120px;
+            text-align: center;
+        }
+    </style>
+    <script>
+        // Recursive factorial function
+        function factorial(n) {
+            if (n === 0 || n === 1) return 1;
+            return n * factorial(n - 1);
+        }
+
+        function fact(){
+            let n = parseInt(document.getElementById("num").value);
+            if (isNaN(n)) {
+                document.getElementById("result").innerHTML = "oops! enter a number!";
+            } else if (n < 0) {
+                document.getElementById("result").innerHTML = "oops! enter a positive number!";
+            } else {
+                document.getElementById("result").innerText = "Factorial of "+n+" is: " + factorial(n);
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Factorial Calculator </h2>
+    <div class="cal">
+        <label>Enter the number</label><br><br>
+        <input type="text" id="num" placeholder="e.g 5"><br><br>
+        <button onclick="fact()">Calculate</button>
+        <p id="result"></p>
+    </div>
+</body>
+</html>
